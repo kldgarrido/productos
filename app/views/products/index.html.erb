@@ -6,10 +6,21 @@
       <table class="table">
         <tr>
           <th>Nombre</th>
+          <th>Precio</th>
+          <th>Categorias</th>
+          <th></th>
         </tr>
         <% @products.each do |product| %>
           <tr>
             <td><%= product.name %></td>
+            <td><%= product.price %></td>
+            <td> 
+                  <% product.category.each do |cat| %>
+                     <%= cat.name %>, 
+                  <% end %>
+               
+            </td>
+            <td> <%= link_to "Editar Producto", edit_product_path(product) %> </td>
           </tr>
         <% end %>
       </table>
