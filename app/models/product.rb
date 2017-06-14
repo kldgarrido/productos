@@ -10,6 +10,6 @@
 #
 
 class Product < ApplicationRecord
-	has_many :categories_to_products
-	has_many :categories, through: :categories_to_products
+	has_many :product_to_category
+	has_many :categories, through: :product_to_category
 end
