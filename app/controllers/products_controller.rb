@@ -19,7 +19,13 @@ class ProductsController < ApplicationController
 
 	def create
 	  @product = Product.new(product_params)
-	  #@product.user = current_user
+	  categories = params[:category]
+	  
+	  #@product.category.clear
+	  categories.each do |cat|
+	  	@product.category << Category.find(cat)
+	  end
+
 	  if @product.save
 	    redirect_to products_path, notice: "El producto fue publicado con éxito"
 	  else
