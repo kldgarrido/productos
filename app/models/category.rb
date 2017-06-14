@@ -9,7 +9,7 @@
 #
 
 class Category < ApplicationRecord
-	has_many :products_to_categories
-	has_many :products, through: :products_to_categories
+	has_many :product_to_category
+	has_many :products, through: :product_to_category
 
 end
