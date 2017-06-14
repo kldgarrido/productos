@@ -19,10 +19,10 @@
 
 
           <% if @product.category.include?(cat) %>
-            <%= check_box_tag('product[category][]', value="#{cat}", checked = true) %>
+            <%= check_box_tag('category[]', value="#{cat.id}", checked = true) %>
             
           <% else %>
-            <%= check_box_tag('product[category][]', value="#{cat.id}", checked = false) %>
+            <%= check_box_tag('category[]', value="#{cat.id}", checked = false) %>
           <% end %>
           <%= label_tag(:categories, cat.name) %>
 

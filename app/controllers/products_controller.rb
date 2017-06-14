@@ -30,6 +30,12 @@ class ProductsController < ApplicationController
 
 	def update
 	  @product = Product.find(params[:id])
+	  categories = params[:category]
+
+	  @product.category.clear
+	  categories.each do |cat|
+	  	@product.category << Category.find(cat)
+	  end
 	  
 	  if @product.update(product_params)
 	    redirect_to products_path, notice: "El producto ha sido modificado con éxito"
@@ -41,8 +47,8 @@ class ProductsController < ApplicationController
 
 	private
 	  def product_params
-	    #params.require(:product).permit(:name, :price, :category  => [])
-	    params.require(:product).permit(:name, :price, :category)
+	    params.require(:product).permit(:name, :price, :category=>[])
+	    #params.require(:product).permit(:name, :price, :category)
 	  end
 
 
