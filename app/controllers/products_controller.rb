@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 	  
 	  #@product.category.clear
 	  categories.each do |cat|
-	  	@product.category << Category.find(cat)
+	  	@product.categories << Category.find(cat)
 	  end
 
 	  if @product.save
@@ -38,9 +38,9 @@ class ProductsController < ApplicationController
 	  @product = Product.find(params[:id])
 	  categories = params[:category]
 
-	  @product.category.clear
+	  @product.categories.clear
 	  categories.each do |cat|
-	  	@product.category << Category.find(cat)
+	  	@product.categories << Category.find(cat)
 	  end
 	  
 	  if @product.update(product_params)

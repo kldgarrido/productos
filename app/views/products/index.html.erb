@@ -22,7 +22,7 @@
             <td><%= product.name %></td>
             <td><%= product.price %></td>
             <td> 
-                  <% product.category.each do |cat| %>
+                  <% product.categories.each do |cat| %>
                      <%= cat.name %>, 
                   <% end %>
                
